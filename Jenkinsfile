@@ -10,7 +10,7 @@ pipeline {
       steps {
         sh '''git fetch --all
 git checkout staging
-git merge $master --no-commit
+git merge $master $COMMIT_ID
 git checkout master
 '''
       }
