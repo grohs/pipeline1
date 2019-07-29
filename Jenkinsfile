@@ -8,8 +8,8 @@ pipeline {
     }
     stage('Merge') {
       steps {
-        sh '''git fetch --all
-git checkout staging
+        sh '''git checkout staging
+git pull https://github.com/grohs/pipeline1.git staging
 $ECHO $COMMIT_ID
 git merge master $COMMIT_ID
 git checkout master
