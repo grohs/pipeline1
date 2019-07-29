@@ -47,7 +47,8 @@ pipeline {
     }
     stage('Deploy production') {
       steps {
-        build 'capcopy'
+        git(url: 'https://github.com/grohs/pipeline1.git', branch: 'master')
+        build 'linkacopy'
       }
     }
     stage('Email Notification') {
