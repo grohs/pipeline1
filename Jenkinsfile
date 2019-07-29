@@ -1,17 +1,16 @@
 pipeline {
   agent any
   stages {
-    stage('Build Job Staging') {
+    stage('Git staging') {
       steps {
         git(url: 'https://github.com/grohs/pipeline1.git', branch: 'staging')
-        build 'linkacopy'
       }
     }
     stage('Merge') {
       steps {
         sh '''git fetch --all
 git checkout staging
-git merge $master
+git merge $master --no-commit
 git checkout master
 '''
       }
