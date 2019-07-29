@@ -11,6 +11,7 @@ pipeline {
         sh '''git fetch --all
 git checkout staging
 $ECHO $COMMIT_ID
+git merge master $COMMIT_ID
 git checkout master
 '''
       }
