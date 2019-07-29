@@ -2,17 +2,9 @@ pipeline {
   agent any
   stages {
     stage('Build Job Staging') {
-      parallel {
-        stage('Build Job Staging') {
-          steps {
-            build 'linkacopy'
-          }
-        }
-        stage('git staging') {
-          steps {
-            git(url: 'https://github.com/grohs/pipeline1.git', branch: 'staging')
-          }
-        }
+      steps {
+        git(url: 'https://github.com/grohs/pipeline1.git', branch: 'staging')
+        build 'linkacopy'
       }
     }
     stage('Build Check') {
@@ -23,6 +15,7 @@ pipeline {
     }
     stage('Build Job Production') {
       steps {
+        git(url: 'https://github.com/grohs/pipeline1.git', branch: 'master')
         build 'capcopy'
       }
     }
