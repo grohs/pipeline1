@@ -9,7 +9,7 @@ pipeline {
     }
     stage('Merge') {
       steps {
-        sh '''git fetch https://github.com/grohs/pipeline1.git -all
+        sh '''git fetch https://github.com/grohs/pipeline1.git --all
 git checkout staging
 git merge $master
 git checkout master
