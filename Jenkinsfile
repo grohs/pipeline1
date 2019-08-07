@@ -42,8 +42,9 @@ pipeline {
     }
     stage('Deploy production') {
       steps {
-        git(url: 'https://github.com/grohs/pipeline1.git', branch: 'staging')
-        sh '''git pull origin staging
+        git(url: 'https://github.com/grohs/pipeline1.git', branch: 'master')
+        sh '''git checkout staging
+git pull origin staging
 git merge master
 git reset HEAD Jenkinsfile
 git checkout -- Jenkinsfile
