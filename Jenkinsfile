@@ -44,14 +44,10 @@ pipeline {
       steps {
         git(url: 'https://github.com/grohs/pipeline1.git', branch: 'master')
         sh '''git config --global merge.ours.driver true
-git checkout staging
-git pull origin staging
-git merge --no-ff --no-commit master
-git reset HEAD Jenkinsfile
-git checkout -- Jenkinsfile
+git pull origin master
+git merge --no-ff staging
 git commit -m "merged staging into master"
-git checkout master
-git push origin master'''
+git push https://github.com/grohs/pipeline1.git master'''
       }
     }
     stage('Email Notification') {
