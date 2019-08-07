@@ -13,11 +13,6 @@ pipeline {
             sh '/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube/bin/sonar-scanner -Dsonar.host.url=http://192.168.0.14:9000 -Dsonar.projectName=pipeline1_mixed -Dsonar.projectVersion=1.0 -Dsonar.projectKey=pipeline1_mixed.com.br -Dsonar.sources=. -Dsonar.projectBaseDir=/var/lib/jenkins/workspace/pipeline1_mixed'
           }
         }
-        stage('error') {
-          steps {
-            waitForQualityGate true
-          }
-        }
       }
     }
     stage('Deploy Staging') {
