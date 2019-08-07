@@ -50,7 +50,8 @@ git merge --no-ff --no-commit master
 git reset HEAD Jenkinsfile
 git checkout -- Jenkinsfile
 git commit -m "merged staging into master"
-git push origin staging'''
+git checkout master
+git push origin master'''
       }
     }
     stage('Email Notification') {
