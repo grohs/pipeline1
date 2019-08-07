@@ -43,7 +43,8 @@ pipeline {
     stage('Deploy production') {
       steps {
         git(url: 'https://github.com/grohs/pipeline1.git', branch: 'master')
-        sh '''git checkout staging
+        sh '''git config --global merge.ours.driver true
+git checkout staging
 git pull origin staging
 git merge --no-ff --no-commit master
 git reset HEAD Jenkinsfile
