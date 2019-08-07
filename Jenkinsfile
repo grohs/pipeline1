@@ -47,8 +47,12 @@ pipeline {
     }
     stage('Deploy production') {
       steps {
-        git(url: 'https://github.com/grohs/pipeline1.git', branch: 'master')
-        build 'linkacopy'
+        git(url: 'https://github.com/grohs/pipeline1.git', branch: 'staging')
+        sh '''git checkout staging
+git merge --no-ff --no-commit master
+git reset HEAD Jenkinsfile
+git checkout -- Jenkinsfile
+git commit -m "merged staging into master"'''
       }
     }
     stage('Email Notification') {
