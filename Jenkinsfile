@@ -45,11 +45,11 @@ pipeline {
         git(url: 'https://github.com/grohs/pipeline1.git', branch: 'master')
         sh '''git checkout staging
 git pull origin staging
-git merge master
+git merge --no-ff --no-commit master
 git reset HEAD Jenkinsfile
 git checkout -- Jenkinsfile
-git push origin staging
-'''
+git commit -m "merged staging into master"
+git push origin staging'''
       }
     }
     stage('Email Notification') {
