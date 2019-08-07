@@ -5,7 +5,7 @@ pipeline {
       parallel {
         stage('Git Staging') {
           steps {
-            git(url: 'https://github.com/grohs/pipeline1.git', branch: 'staging')
+            git(url: 'https://github.com/grohs/pipeline1.git', branch: 'mixed')
           }
         }
         stage('SonarQube') {
