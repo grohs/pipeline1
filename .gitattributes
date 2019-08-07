@@ -1,3 +1,5 @@
 Jenkinsfile merge=ours
 
 Jenkinsfile -diff
+
+git config --global merge.ours.driver true
